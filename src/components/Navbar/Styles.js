@@ -1,74 +1,67 @@
-import styled from "styled-components";
-import LogoSrc from "../../assets/kmaker2.png";
+import { makeStyles, fade } from "@material-ui/core";
 
-export const Nav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  height: 110px;
-  width: 100%;
-  padding: 0 30px;
-  background-color: white;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-  font-size: 20px;
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  text-decoration: none;
-`;
+const drawerWidth = 0;
 
-export const User = styled.a`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  text-decoration: none;
-`;
-
-export const Signin = styled.button`
-  font-size: 0.75em;
-  margin: 0.5em;
-  padding: 0.25em 0.75em;
-  border: 2px solid;
-  border-radius: 3px;
-`;
-
-export const Signup = styled.button`
-  font-size: 0.75em;
-  margin: 0.5em;
-  padding: 0.25em 0.75em;
-  border: 2px solid;
-  border-radius: 3px;
-`;
-
-export const NavWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Logo = styled.img.attrs({
-  src: `${LogoSrc}`,
-})`
-  width: 9em;
-  height: 9em;
-`;
-
-export const Cart = styled.a`
-  padding: 1em;
-  text-decoration: none;
-`;
-
-export const MobileIcon = styled.div`
-  display: block;
-
-  @media screen and (max-width: 480px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-`;
+export default makeStyles((theme) => ({
+  appBar: {
+    boxShadow: "none",
+    borderBottom: "1px solid rgba(0,0,0,0.12)",
+    [theme.breakpoints.up("sm")]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+    },
+  },
+  title: {
+    flexGrow: 1,
+    aligntItems: "center",
+    display: "flex",
+    textDecoration: "none",
+  },
+  image: {
+    marginRight: "10px",
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  search: {
+    position: "relative",
+    borderRadius: theme.shape.barderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    "&:hover": {
+      backgroundColor: fade(theme.palette.commone.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: "auto",
+    },
+  },
+  searchIcon: {
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  inputRoot: {
+    color: "inherit",
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 0),
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
+    },
+  },
+}));

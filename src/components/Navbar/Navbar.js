@@ -1,28 +1,45 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Nav, User, NavWrap, Logo, Cart, MobileIcon } from "./Styles";
-import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
-import { FaTimes, FaBars } from "react-icons/fa";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Badge,
+  IconButton,
+} from "@material-ui/core";
+import { MenuIcon, ShoppingCart } from "@material-ui/icons";
+import logo from "../../assets/kmaker2.png";
+import useStyles from "./Styles";
 
 export default function Navbar() {
+  const classes = useStyles();
+
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
 
   return (
-    <Nav>
-      <User href="account">
-        <MobileIcon onClick={handleClick}>
-          {click ? <FaTimes /> : <FaBars />}
-        </MobileIcon>
-        <AiOutlineUser />
-      </User>
-      <Logo to="/" />
-      <NavWrap>
-        <Cart href="cart">
-          <AiOutlineShoppingCart />
-        </Cart>
-      </NavWrap>
-    </Nav>
+    <div>
+      <AppBar>
+        <Toolbar>
+          <Typography variant="h6" className={classes.title} color="inherit">
+            <img
+              src={logo}
+              alt="Kmaker"
+              height="25px"
+              className={classes.images}
+            />
+          </Typography>
+          <div className={classes.grow} />
+          <div className={classes.button}>
+            <IconButton aria-label="Show cart items" color="inherit">
+              <Badge badgeContent={2} color="secondary">
+                <ShoppingCart />
+              </Badge>
+            </IconButton>
+          </div>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }
