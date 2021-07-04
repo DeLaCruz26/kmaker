@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import { MenuIcon, ShoppingCart } from "@material-ui/icons";
 import logo from "../../assets/kmaker2.png";
-import useStyles from "./Styles";
+import useStyles from "./styles";
 
 export default function Navbar() {
   const classes = useStyles();
@@ -20,14 +20,15 @@ export default function Navbar() {
 
   return (
     <div>
-      <AppBar>
+      <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
           <Typography variant="h6" className={classes.title} color="inherit">
             <img
               src={logo}
               alt="Kmaker"
-              height="25px"
-              className={classes.images}
+              height="100px"
+              width="100px"
+              className={classes.image}
             />
           </Typography>
           <div className={classes.grow} />
