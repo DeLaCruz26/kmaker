@@ -7,7 +7,7 @@ import {
   Badge,
   IconButton,
 } from "@material-ui/core";
-import { MenuIcon, ShoppingCart } from "@material-ui/icons";
+import { Menu, ShoppingCart } from "@material-ui/icons";
 import logo from "../../assets/kmaker2.png";
 import useStyles from "./styles";
 
@@ -22,6 +22,12 @@ export default function Navbar() {
     <div>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
+          <div>
+            <IconButton aria-label="Show menu items" color="inherit">
+              <Menu />
+            </IconButton>
+          </div>
+          <div className={classes.grow} />
           <Typography variant="h6" className={classes.title} color="inherit">
             <img
               src={logo}
@@ -31,7 +37,6 @@ export default function Navbar() {
               className={classes.image}
             />
           </Typography>
-          <div className={classes.grow} />
           <div className={classes.button}>
             <IconButton aria-label="Show cart items" color="inherit">
               <Badge badgeContent={2} color="secondary">
