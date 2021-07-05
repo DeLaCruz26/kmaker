@@ -4,6 +4,6 @@ export const fetchCart = async () => {
   const cart = await commerce.cart.retrieve();
 };
 
-export const addToCart = async (productId, quantity) => {
-  const item = await commerce.cart.add();
+export const addToCart = (product) => async (productId, quantity) => {
+  const item = await commerce.cart.add(productId, quantity);
 };
