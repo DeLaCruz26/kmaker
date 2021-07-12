@@ -32,8 +32,8 @@ export default function Navbar() {
             <img
               src={logo}
               alt="Kmaker"
-              height="100px"
-              width="100px"
+              height="110px"
+              width="110px"
               className={classes.image}
             />
           </Typography>

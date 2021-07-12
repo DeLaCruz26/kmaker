@@ -1,15 +1,9 @@
 const initialState = {
   cart: [],
-  loading: true,
 };
 
-const cartReducer = (state = initialState, action) => {
+export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "LOADING":
-      return {
-        ...state,
-        loading: true,
-      };
     case "ADD_TO_CART":
       const item = action.payload;
       const existItem = state.cart.find((i) => i.product === item.product);
@@ -36,5 +30,3 @@ const cartReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default cartReducer;
