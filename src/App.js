@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Products } from "./components";
+import { Navbar, Products, Cart } from "./components";
 import { commerce } from "./lib/commerce";
 import "./App.css";
 
@@ -42,10 +42,11 @@ const App = () => {
     //     <Route to="/account" />
     //   </Switch>
     // </Router>
-    <>
+    <div>
       <Navbar totalItems={cart.total_items} />
-      <Products products={products} addToCart={addToCart} />
-    </>
+      {/* <Products products={products} addToCart={addToCart} /> */}
+      <Cart cart={cart} />
+    </div>
   );
 };
 
