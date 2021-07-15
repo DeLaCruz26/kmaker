@@ -1,18 +1,15 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
 import { Navbar, Products } from "./components";
-import { fetchCart } from "./redux/actions/cartActions";
-import { fetchProducts } from "./redux/actions/productActions";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(fetchProducts());
+    fetchProducts();
     fetchCart();
-  }, [dispatch]);
+  }, []);
+
+  console.log(products);
 
   return (
     // <Router>

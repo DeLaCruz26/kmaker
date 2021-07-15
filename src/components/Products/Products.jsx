@@ -11,7 +11,7 @@ import useStyles from './styles'
 
 const Products = ({products, addToCart }) => {
     const classes = useStyles()
-
+    console.log(products);
     return (
         <main className={classes.content}>
             <div className={classes.toolbar} />
