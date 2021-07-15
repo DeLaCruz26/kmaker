@@ -8,11 +8,14 @@ import {
   IconButton,
 } from "@material-ui/core";
 import { Menu, ShoppingCart } from "@material-ui/icons";
+import { Link, useLocation } from 'react-router-dom'
 import logo from "../../assets/kmaker2.png";
 import useStyles from "./styles";
 
 export default function Navbar({ totalItems }) {
   const classes = useStyles();
+  const location = useLocation()
+
 
   const [click, setClick] = useState(false);
 
@@ -28,7 +31,7 @@ export default function Navbar({ totalItems }) {
             </IconButton>
           </div>
           <div className={classes.grow} />
-          <Typography variant="h6" className={classes.title} color="inherit">
+          <Typography component={Link} to='/' variant="h6" className={classes.title} color="inherit">
             <img
               src={logo}
               alt="Kmaker"
@@ -37,13 +40,14 @@ export default function Navbar({ totalItems }) {
               className={classes.image}
             />
           </Typography>
+          {location.pathname === '/' && (
           <div className={classes.button}>
-            <IconButton aria-label="Show cart items" color="inherit">
+            <IconButton component={Link} to='/cart' aria-label="Show cart items" color="inherit">
               <Badge badgeContent={totalItems} color="secondary">
                 <ShoppingCart />
               </Badge>
             </IconButton>
-          </div>
+          </div> )}
         </Toolbar>
       </AppBar>
     </div>
