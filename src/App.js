@@ -19,12 +19,18 @@ const App = () => {
     setCart(await commerce.cart.retrieve());
   };
 
+  const addToCart = async (productId, quantity) => {
+    const item = await commerce.cart.add(productId, quantity);
+
+    setCart(item.cart);
+  };
+
   useEffect(() => {
     fetchProducts();
     fetchCart();
   }, []);
 
-  console.log(products);
+  console.log(cart);
 
   return (
     // <Router>
@@ -37,8 +43,8 @@ const App = () => {
     //   </Switch>
     // </Router>
     <>
-      <Navbar />
-      <Products products={products} />
+      <Navbar totalItems={cart.total_items} />
+      <Products products={products} addToCart={addToCart} />
     </>
   );
 };

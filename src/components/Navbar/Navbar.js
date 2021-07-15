@@ -11,7 +11,7 @@ import { Menu, ShoppingCart } from "@material-ui/icons";
 import logo from "../../assets/kmaker2.png";
 import useStyles from "./styles";
 
-export default function Navbar() {
+export default function Navbar({ totalItems }) {
   const classes = useStyles();
 
   const [click, setClick] = useState(false);
@@ -39,7 +39,7 @@ export default function Navbar() {
           </Typography>
           <div className={classes.button}>
             <IconButton aria-label="Show cart items" color="inherit">
-              <Badge badgeContent={2} color="secondary">
+              <Badge badgeContent={totalItems} color="secondary">
                 <ShoppingCart />
               </Badge>
             </IconButton>
