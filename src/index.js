@@ -2,15 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import cartReducer from "./redux/reducers/cartReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { fetchProducts } from "./redux/actions/productActions";
 
-const store = createStore(
-  cartReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const reducer = combineReducers({
+  cartReducer: cartReducer,
+  fetchProducts: fetchProducts,
+});
+
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <React.StrictMode>

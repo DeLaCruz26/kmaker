@@ -1,4 +1,4 @@
-import { commerce } from "../lib/commerce";
+import { commerce } from "../../lib/commerce";
 
 export const fetchProducts = () => async (dispatch) => {
   const { data } = await commerce.products.list();
@@ -7,4 +7,5 @@ export const fetchProducts = () => async (dispatch) => {
     type: "FETCH_PRODUCTS",
     payload: data,
   });
+  console.log(data);
 };
